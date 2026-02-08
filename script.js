@@ -204,17 +204,22 @@ document.addEventListener("click", e => {
 // ──────────────────────────────────────────────
 //  FUTURE MESSAGE (voice note style)
 // ──────────────────────────────────────────────
-elements.missYouBtn.addEventListener("click", () => {
-  playSoftClick();
-  const randomMsg = messages.future[Math.floor(Math.random() * messages.future.length)];
+elements.missYouBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  // 🔥 SONG SIRF YAHI PLAY HOGA
+  elements.clickSound.pause();
+  elements.clickSound.currentTime = 0;
+  elements.clickSound.volume = 1;
+  elements.clickSound.play();
+
+  // Baaki existing logic
+  const randomMsg =
+    messages.future[Math.floor(Math.random() * messages.future.length)];
+
   elements.futureText.textContent = "";
   elements.voiceNote.classList.remove("hidden");
   typeWriter(elements.futureText, randomMsg, 55);
-});
-
-elements.playNote.addEventListener("click", () => {
-  playSoftClick();
-  alert("Imagine main yeh soft awaaz mein bol rahi hoon… 🥺🎤");
 });
 
 // ──────────────────────────────────────────────
@@ -281,3 +286,4 @@ document.addEventListener("click", e => {
 
 
 console.log("Chocolate Day 2026 – Ready 💕");
+
