@@ -49,10 +49,8 @@ function saveState() {
 }
 
 function playSoftClick() {
-  elements.clickSound.currentTime = 0;
-  elements.clickSound.volume = 0.2;
-  elements.clickSound.play().catch(()=>{});
 }
+  
 
 function updateProgress(level, max = 5) {
   const percent = (level / max) * 100;
@@ -280,5 +278,6 @@ document.addEventListener("click", e => {
     alert("Triple tap? 😳\nLagta hai dil se dil tak baat ho rahi hai… ❤️");
   }
 });
+
 
 console.log("Chocolate Day 2026 – Ready 💕");
