@@ -78,27 +78,28 @@
     <p>Made with nervousness & love 🥺💗</p>
   </footer>
 
-  <audio id="click-sound" src="test.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
   <script>
   const missYouBtn = document.getElementById("miss-you-btn");
-  const playNoteBtn = document.getElementById("play-note");
   const voiceNote = document.getElementById("voice-note");
   const audio = document.getElementById("click-sound");
 
-  // Pehle button pe click — sirf box open hoga
-  missYouBtn.addEventListener("click", () => {
-    voiceNote.classList.remove("hidden");
-  });
+  // Default: audio bilkul band rahe
+  audio.pause();
+  audio.currentTime = 0;
 
-  // Song sirf is button pe click hone par hi play hoga
-  playNoteBtn.addEventListener("click", () => {
-    audio.currentTime = 0; // har baar fresh start
-    audio.play();
+  // SIRF is button pe click -> song play
+  missYouBtn.addEventListener("click", function (e) {
+    e.stopPropagation();      // kisi aur click event ko rokta hai
+
+    voiceNote.classList.remove("hidden"); // box open
+    audio.currentTime = 0;    // fresh start
+    audio.play();             // 🔥 SONG SIRF YAHI BAJEGA
   });
   </script>
 </body>
 
 </html>
+
 
