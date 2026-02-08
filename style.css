@@ -1,0 +1,210 @@
+:root {
+  --bg-start: #ff9a9e;
+  --bg-end: #fecfef;
+  --card-bg: rgba(255,255,255,0.78);
+  --pink: #ff4081;
+  --dark-pink: #f50057;
+  --text: #2d1a3e;
+}
+
+[data-theme="dark"] {
+  --bg-start: #2d1a3e;
+  --bg-end: #4a148c;
+  --card-bg: rgba(30, 20, 50, 0.85);
+  --text: #f8e1ff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background-effects {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petals-layer, .hearts-layer {
+  position: absolute;
+  inset: 0;
+  background-size: 80px;
+  opacity: 0.25;
+  animation: float 60s linear infinite;
+}
+
+.petals-layer { background: url('https://i.imgur.com/rose-petal-png.png') repeat; }
+.hearts-layer { background: url('https://i.imgur.com/heart-outline.png') repeat; animation-duration: 80s; }
+
+@keyframes float {
+  from { transform: translateY(0) rotate(0deg); background-position: 0 0; }
+  to   { transform: translateY(-2000px) rotate(360deg); background-position: 400px 2000px; }
+}
+
+.container { max-width: 520px; margin: 0 auto; padding: 16px; position: relative; z-index: 1; }
+
+header { text-align: center; padding: 20px 0 10px; position: relative; }
+
+.title {
+  font-family: 'Satisfy', cursive;
+  font-size: 4.2rem;
+  color: white;
+  text-shadow: 0 6px 20px rgba(244,67,54,0.6);
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  animation: typing 3.5s steps(30,end) forwards, blink 0.8s step-end infinite;
+}
+
+.typing-delay { animation-delay: 1.2s; }
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 28px 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-4px); }
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mood {
+  padding: 18px 12px;
+  font-size: 1.2rem;
+  border-radius: 18px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.yes { background: var(--pink); }
+.yes:hover { background: var(--dark-pink); transform: scale(1.06); }
+
+.maybe { background: #ff9800; }
+.no { background: #78909c; }
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4081, #f50057);
+  transition: width 1s ease;
+}
+
+.voice-card { text-align: center; }
+.voice-note {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255,105,180,0.15);
+  border-radius: 16px;
+}
+
+.play-btn {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.share-btn {
+  display: block;
+  margin: 32px auto;
+  padding: 18px 48px;
+  font-size: 1.4rem;
+  background: linear-gradient(45deg, #ff1744, #f50057, #d500f9);
+  background-size: 200%;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px #f5005766;
+  cursor: pointer;
+  animation: gradient 4s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.days-grid time {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffeb3b;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+footer {
+  text-align: center;
+  color: white;
+  opacity: 0.7;
+  margin: 60px 0 30px;
+  font-size: 0.9rem;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .card { border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .title { text-shadow: 0 4px 20px #bb86fc; }

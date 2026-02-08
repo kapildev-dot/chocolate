@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Chocolate Day 2026 🍫💌</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Satisfy&family=Caveat&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+
+  <div class="background-effects">
+    <div class="petals-layer"></div>
+    <div class="hearts-layer"></div>
+  </div>
+
+  <header>
+    <button id="theme-toggle">🌙</button>
+    <h1 class="title typing">Chocolate Day 🍫</h1>
+  </header>
+
+  <main class="container">
+
+    <section id="welcome" class="card intro">
+      <p class="greet">Hey... <span id="time-greet">Good Evening</span> 🌙</p>
+      <p class="subtitle typing-delay">thoda sa dar lag raha hai... par dil se dil tak kuch kehna chahti hoon 🥺🍫</p>
+    </section>
+
+    <section id="mood-section" class="card">
+      <h2>Aaj dil ka mood kya keh raha hai?</h2>
+      <div class="mood-grid">
+        <button class="mood yes" data-mood="yes">💖 Haan, bilkul!</button>
+        <button class="mood maybe" data-mood="maybe">🙈 Thoda confuse hoon...</button>
+        <button class="mood no" data-mood="no">❌ Nahi yaar...</button>
+      </div>
+    </section>
+
+    <div id="main-content" class="hidden flow-container"></div>
+
+    <!-- Progress of confession -->
+    <div id="confession-progress" class="hidden">
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+      <p id="progress-text">Level 1/5 – Feeling Check</p>
+    </div>
+
+    <!-- Future message with voice note style -->
+    <div id="future-box" class="hidden card voice-card">
+      <button id="miss-you-btn">💌 Jab yaad aaye tab kholna</button>
+      <div id="voice-note" class="voice-note hidden">
+        <button id="play-note" class="play-btn">▶ Play my feeling</button>
+        <p id="future-text"></p>
+      </div>
+    </div>
+
+    <!-- Share area -->
+    <div class="share-section hidden">
+      <button id="share-love" class="share-btn">Iska link usko bhej doon? 🍫❤️</button>
+      <p id="share-stats">Aaj <strong id="share-count">0</strong> ladkiyon ne share kiya 💕</p>
+    </div>
+
+    <div class="countdown-days hidden">
+      <h3>Upcoming surprises 🔐</h3>
+      <div class="days-grid">
+        <div><span>Promise Day</span><time id="promise-count"></time></div>
+        <div><span>Hug Day</span><time id="hug-count"></time></div>
+        <div><span>Valentine</span><time id="val-count"></time></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Made with nervousness & love 🥺💗</p>
+  </footer>
+
+  <audio id="click-sound" src="assets/click.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
