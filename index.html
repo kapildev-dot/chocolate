@@ -46,13 +46,16 @@
     </div>
 
     <!-- Future message with voice note style -->
-    <div id="future-box" class="hidden card voice-card">
-      <button id="miss-you-btn">💌 Jab yaad aaye tab kholna</button>
-      <div id="voice-note" class="voice-note hidden">
-        <button id="play-note" class="play-btn">▶ Play my feeling</button>
-        <p id="future-text"></p>
-      </div>
-    </div>
+    <audio id="click-sound" src="test.mp3" preload="auto"></audio>
+
+<div id="future-box" class="hidden card voice-card">
+  <button id="miss-you-btn">💌 Jab yaad aaye tab kholna</button>
+
+  <div id="voice-note" class="voice-note hidden">
+    <button id="play-note" class="play-btn">▶ Play my feeling</button>
+    <p id="future-text"></p>
+  </div>
+</div>
 
     <!-- Share area -->
     <div class="share-section hidden">
@@ -78,6 +81,24 @@
   <audio id="click-sound" src="test.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
+  <script>
+  const missYouBtn = document.getElementById("miss-you-btn");
+  const playNoteBtn = document.getElementById("play-note");
+  const voiceNote = document.getElementById("voice-note");
+  const audio = document.getElementById("click-sound");
+
+  // Pehle button pe click — sirf box open hoga
+  missYouBtn.addEventListener("click", () => {
+    voiceNote.classList.remove("hidden");
+  });
+
+  // Song sirf is button pe click hone par hi play hoga
+  playNoteBtn.addEventListener("click", () => {
+    audio.currentTime = 0; // har baar fresh start
+    audio.play();
+  });
+  </script>
 </body>
 
 </html>
+
