@@ -80,26 +80,10 @@
 
 
   <script src="script.js"></script>
-  <script>
-  const missYouBtn = document.getElementById("miss-you-btn");
-  const voiceNote = document.getElementById("voice-note");
-  const audio = document.getElementById("click-sound");
-
-  // Default: audio bilkul band rahe
-  audio.pause();
-  audio.currentTime = 0;
-
-  // SIRF is button pe click -> song play
-  missYouBtn.addEventListener("click", function (e) {
-    e.stopPropagation();      // kisi aur click event ko rokta hai
-
-    voiceNote.classList.remove("hidden"); // box open
-    audio.currentTime = 0;    // fresh start
-    audio.play();             // 🔥 SONG SIRF YAHI BAJEGA
-  });
-  </script>
+  
 </body>
 
 </html>
+
 
 
